@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AWS Cloud Club | NIBM Computing Society</title>
+  <meta name="description" content="Official AWS Cloud Club page for the NIBM Computing Society – learn cloud computing, prepare for AWS certifications and join our community." />
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN; our custom palette extends the society's palette with AWS colours -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            brand: {
+              50: '#E6F1FA',
+              100: '#D7E9F8',
+              200: '#BBDCF4',
+              300: '#90C4EC',
+              400: '#5EA3DF',
+              500: '#2B7FCF',
+              600: '#2173C4',
+              700: '#1B63A9',
+              800: '#154D84',
+              900: '#0F3963'
+            },
+            aws: {
+              orange: '#FF9900',
+              dark: '#232F3E'
+            }
+          },
+          boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.08)' }
+        }
+      }
+    };
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    /* AWS gradient for hero background */
+    .aws-gradient {
+      background: linear-gradient(135deg, #232F3E 0%, #FF9900 100%);
+    }
+  </style>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="bg-white text-slate-800">
+  <!-- Top bar -->
+  
+  <!-- Header & Navigation -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html#home" class="flex items-center gap-3">
+          <img src="nibm-computing-society-logo.png" alt="NIBM Computing Society" class="h-10 w-auto" loading="eager" decoding="async" />
+          <span class="font-extrabold text-lg tracking-tight">NIBM Computing Society</span>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 font-medium">
+          <a href="index.html#about" class="hover:text-brand-700">About</a>
+          <a href="index.html#events" class="hover:text-brand-700">Events</a>
+          <a href="index.html#projects" class="hover:text-brand-700">Projects</a>
+          <a href="index.html#team" class="hover:text-brand-700">Team</a>
+          <div class="relative group">
+            <button class="hover:text-brand-700 inline-flex items-center gap-1">Organization
+              <svg class="h-4 w-4 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0l-4.24-4.24a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="absolute left-0 top-full mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-soft hidden group-hover:block z-50">
+              <a href="advisor-board.html" class="block px-4 py-2 hover:bg-brand-50">Advisory Board</a>
+              <a href="mentor-board.html" class="block px-4 py-2 hover:bg-brand-50">Mentor Board</a>
+              <a href="executive-committee.html" class="block px-4 py-2 hover:bg-brand-50">Executive Committee</a>
+              <a href="operational-units.html" class="block px-4 py-2 hover:bg-brand-50">Operational Units</a>
+              <a href="chapters.html" class="block px-4 py-2 hover:bg-brand-50">Chapters</a>
+            </div>
+          </div>
+          <a href="index.html#contact" class="hover:text-brand-700">Contact</a>
+          <a href="index.html#join" class="px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700 shadow-soft">Join</a>
+        </nav>
+        <!-- Mobile button -->
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-300" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+      <div class="px-4 py-3 grid gap-2 bg-white">
+        <a href="index.html#about" class="py-2">About</a>
+        <a href="index.html#events" class="py-2">Events</a>
+        <a href="index.html#projects" class="py-2">Projects</a>
+        <a href="index.html#team" class="py-2">Team</a>
+        <a href="advisor-board.html" class="py-2">Advisory Board</a>
+        <a href="mentor-board.html" class="py-2">Mentor Board</a>
+        <a href="executive-committee.html" class="py-2">Executive Committee</a>
+        <a href="operational-units.html" class="py-2">Operational Units</a>
+        <a href="chapters.html" class="py-2">Chapters</a>
+        <a href="index.html#contact" class="py-2">Contact</a>
+        <a href="index.html#join" class="py-2 rounded-lg bg-brand-600 text-white text-center">Join</a>
+      </div>
+    </div>
+  </header>
+  <!-- AWS Cloud Club Hero -->
+  <section class="aws-gradient text-white py-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <div class="inline-flex items-center gap-2 bg-white/20 rounded-full px-4 py-2 mb-6">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.6 16.5c-1.2 0-2.3-.5-3.2-1.3l-1.4 1.4c1.3 1.2 3 2 4.9 2 4.1 0 7.5-3.4 7.5-7.5S22.1 4 18 4c-1.9 0-3.6.7-4.9 1.9l1.4 1.4c.9-.8 2-1.3 3.2-1.3 2.8 0 5 2.2 5 5s-2.2 5-5 5z"/>
+              <path d="M6 16.5c-2.8 0-5-2.2-5-5s2.2-5 5-5c1.2 0 2.3.5 3.2 1.3l1.4-1.4C9.6 4.7 7.9 4 6 4 1.9 4-1.5 7.4-1.5 11.5S1.9 19 6 19c1.9 0 3.6-.7 4.9-1.9l-1.4-1.4c-.9.8-2 1.3-3.2 1.3z"/>
+              <path d="M8.5 11.5c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5-1.1-2.5-2.5-2.5-2.5 1.1-2.5 2.5z"/>
+            </svg>
+            <span class="text-sm font-medium">Official AWS Program</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight">
+            AWS Cloud Club
+            <span class="text-aws-orange">NIBM</span>
+          </h1>
+          <p class="mt-5 text-lg text-white/90 max-w-prose">
+            Join the official AWS Cloud Club at NIBM to learn cloud computing, build real-world projects,
+            and prepare for AWS certifications with hands-on labs and expert guidance.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#join" class="px-6 py-3 rounded-xl bg-aws-orange text-aws-dark font-semibold hover:bg-orange-400 shadow-soft">
+              Join Cloud Club
+            </a>
+            <a href="#events" class="px-6 py-3 rounded-xl border border-white/30 text-white font-semibold hover:bg-white/10">
+              Upcoming Events
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <div class="bg-white/10 backdrop-blur rounded-2xl p-8">
+            <div class="text-center">
+              <div class="inline-flex items-center justify-center w-20 h-20 bg-aws-orange rounded-2xl mb-6">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-aws-dark" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.6 16.5c-1.2 0-2.3-.5-3.2-1.3l-1.4 1.4c1.3 1.2 3 2 4.9 2 4.1 0 7.5-3.4 7.5-7.5S22.1 4 18 4c-1.9 0-3.6.7-4.9 1.9l1.4 1.4c.9-.8 2-1.3 3.2-1.3 2.8 0 5 2.2 5 5s-2.2 5-5 5z"/>
+                  <path d="M6 16.5c-2.8 0-5-2.2-5-5s2.2-5 5-5c1.2 0 2.3.5 3.2 1.3l1.4-1.4C9.6 4.7 7.9 4 6 4 1.9 4-1.5 7.4-1.5 11.5S1.9 19 6 19c1.9 0 3.6-.7 4.9-1.9l-1.4-1.4c-.9.8-2 1.3-3.2 1.3z"/>
+                  <path d="M8.5 11.5c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5-1.1-2.5-2.5-2.5-2.5 1.1-2.5 2.5z"/>
+                </svg>
+              </div>
+              <h3 class="text-xl font-bold text-white">Cloud Learning Community</h3>
+              <div class="mt-6 grid grid-cols-3 gap-4 text-center">
+                <div class="p-3 rounded-lg bg-white/10">
+                  <p class="text-2xl font-extrabold">150+</p>
+                  <p class="text-sm text-white/80">Members</p>
+                </div>
+                <div class="p-3 rounded-lg bg-white/10">
+                  <p class="text-2xl font-extrabold">25+</p>
+                  <p class="text-sm text-white/80">Certified</p>
+                </div>
+                <div class="p-3 rounded-lg bg-white/10">
+                  <p class="text-2xl font-extrabold">8</p>
+                  <p class="text-sm text-white/80">Projects</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- About AWS Cloud Club -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold">About AWS Cloud Club</h2>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            AWS Cloud Clubs are student-led user groups that provide learning opportunities about cloud computing
+            and career pathways. As an official AWS program, we bring together students passionate about cloud technologies.
+          </p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 bg-aws-orange rounded-full"></span>
+              Hands-on AWS workshops and labs
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 bg-aws-orange rounded-full"></span>
+              AWS certification preparation
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 bg-aws-orange rounded-full"></span>
+              Real-world cloud projects
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="mt-1 h-2 w-2 bg-aws-orange rounded-full"></span>
+              Industry expert sessions
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold text-lg text-aws-dark">Club Leadership</h3>
+          <div class="mt-4 space-y-4">
+            <div class="flex items-center gap-4 p-3 bg-slate-50 rounded-lg">
+              <div class="h-12 w-12 rounded-full bg-aws-orange/20 flex items-center justify-center">
+                <span class="font-bold text-aws-dark">CL</span>
+              </div>
+              <div>
+                <h4 class="font-semibold">Cloud Lead</h4>
+                <p class="text-sm text-slate-600">Name Surname</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-3 bg-slate-50 rounded-lg">
+              <div class="h-12 w-12 rounded-full bg-aws-orange/20 flex items-center justify-center">
+                <span class="font-bold text-aws-dark">AL</span>
+              </div>
+              <div>
+                <h4 class="font-semibold">Academic Lead</h4>
+                <p class="text-sm text-slate-600">Name Surname</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4 p-3 bg-slate-50 rounded-lg">
+              <div class="h-12 w-12 rounded-full bg-aws-orange/20 flex items-center justify-center">
+                <span class="font-bold text-aws-dark">EL</span>
+              </div>
+              <div>
+                <h4 class="font-semibold">Events Lead</h4>
+                <p class="text-sm text-slate-600">Name Surname</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- AWS Learning Paths -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-center">AWS Learning Paths</h2>
+      <p class="mt-4 text-slate-600 text-center max-w-2xl mx-auto">
+        Structured learning paths to guide you from cloud beginner to AWS certified professional
+      </p>
+      <div class="mt-12 grid md:grid-cols-3 gap-8">
+        <!-- Beginner Path -->
+        <div class="bg-white rounded-2xl p-6 shadow-soft border-t-4 border-aws-orange">
+          <div class="w-12 h-12 bg-aws-orange/20 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-aws-orange font-bold">1</span>
+          </div>
+          <h3 class="text-xl font-bold">Cloud Practitioner</h3>
+          <p class="mt-3 text-slate-700">
+            Start your cloud journey with AWS fundamentals, core services, and basic architecture concepts.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• AWS Core Services (EC2, S3, IAM)</li>
+            <li>• Cloud Concepts & Pricing</li>
+            <li>• Security & Compliance Basics</li>
+            <li>• AWS Cloud Practitioner Certification</li>
+          </ul>
+        </div>
+        <!-- Intermediate Path -->
+        <div class="bg-white rounded-2xl p-6 shadow-soft border-t-4 border-aws-dark">
+          <div class="w-12 h-12 bg-aws-dark/20 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-aws-dark font-bold">2</span>
+          </div>
+          <h3 class="text-xl font-bold">Solutions Architect</h3>
+          <p class="mt-3 text-slate-700">
+            Design distributed systems on AWS. Learn about high availability, scalability, and cost optimization.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• AWS Architecture Best Practices</li>
+            <li>• Networking & Security</li>
+            <li>• Database Services & Analytics</li>
+            <li>• Solutions Architect Associate</li>
+          </ul>
+        </div>
+        <!-- Advanced Path -->
+        <div class="bg-white rounded-2xl p-6 shadow-soft border-t-4 border-brand-600">
+          <div class="w-12 h-12 bg-brand-600/20 rounded-lg flex items-center justify-center mb-4">
+            <span class="text-brand-600 font-bold">3</span>
+          </div>
+          <h3 class="text-xl font-bold">DevOps &amp; Advanced</h3>
+          <p class="mt-3 text-slate-700">
+            Master DevOps practices, automation, and advanced AWS services for professional development.
+          </p>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• CI/CD with AWS Code*</li>
+            <li>• Containerization &amp; Serverless</li>
+            <li>• Monitoring &amp; Optimization</li>
+            <li>• DevOps Professional</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Upcoming AWS Events -->
+  <section id="events" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Upcoming AWS Events</h2>
+      <div class="mt-8 grid md:grid-cols-2 gap-6">
+        <article class="bg-white rounded-2xl shadow-soft overflow-hidden flex flex-col">
+          <div class="h-40 bg-gradient-to-br from-aws-dark to-aws-orange"></div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-sm font-semibold text-aws-orange">Wed, 20 Nov · 2:00 PM · Online</p>
+            <h3 class="mt-1 font-bold text-lg">AWS Cloud Practitioner Crash Course</h3>
+            <p class="mt-2 text-slate-700 flex-1">
+              Intensive 3-hour session covering all domains for AWS Certified Cloud Practitioner exam.
+            </p>
+            <a href="#" class="mt-4 inline-block px-4 py-2 rounded-lg bg-aws-orange text-aws-dark font-semibold hover:bg-orange-400">
+              Register Now
+            </a>
+          </div>
+        </article>
+        <article class="bg-white rounded-2xl shadow-soft overflow-hidden flex flex-col">
+          <div class="h-40 bg-gradient-to-br from-aws-orange to-yellow-400"></div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-sm font-semibold text-aws-orange">Sat, 30 Nov · 9:00 AM · Lab 4</p>
+            <h3 class="mt-1 font-bold text-lg">Hands-on EC2 &amp; S3 Workshop</h3>
+            <p class="mt-2 text-slate-700 flex-1">
+              Build and deploy your first web application using Amazon EC2 and S3. Bring your laptop.
+            </p>
+            <a href="#" class="mt-4 inline-block px-4 py-2 rounded-lg bg-aws-orange text-aws-dark font-semibold hover:bg-orange-400">
+              Register Now
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+  <!-- Join AWS Cloud Club -->
+  <section id="join" class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold">Join AWS Cloud Club</h2>
+          <p class="mt-4 text-slate-700">
+            Become part of our cloud computing community. All NIBM students are welcome regardless of experience level.
+          </p>
+          <ul class="mt-4 list-disc list-inside text-slate-700 space-y-2">
+            <li>Free AWS workshops and hands-on labs</li>
+            <li>Access to AWS Educate and training resources</li>
+            <li>Mentorship for AWS certifications</li>
+            <li>Real-world cloud project experience</li>
+            <li>Networking with industry professionals</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft border border-aws-orange/20">
+          <form action="#" method="post" class="grid gap-4">
+            <div>
+              <label class="block text-sm font-medium">Full Name</label>
+              <input type="text" required class="mt-1 w-full rounded-lg border-slate-300 focus:border-aws-orange focus:ring-aws-orange" placeholder="Your name" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">NIBM Email</label>
+              <input type="email" required class="mt-1 w-full rounded-lg border-slate-300 focus:border-aws-orange focus:ring-aws-orange" placeholder="you@students.nibm.lk" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Current AWS Experience</label>
+              <select class="mt-1 w-full rounded-lg border-slate-300 focus:border-aws-orange focus:ring-aws-orange">
+                <option>Beginner (No experience)</option>
+                <option>Some basic knowledge</option>
+                <option>Comfortable with core services</option>
+                <option>Working towards certification</option>
+                <option>AWS Certified</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Interested in Certification?</label>
+              <select class="mt-1 w-full rounded-lg border-slate-300 focus:border-aws-orange focus:ring-aws-orange">
+                <option>Cloud Practitioner</option>
+                <option>Solutions Architect Associate</option>
+                <option>Developer Associate</option>
+                <option>SysOps Administrator</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+            <button type="submit" class="mt-2 px-5 py-3 rounded-xl bg-aws-orange text-aws-dark font-semibold hover:bg-orange-400">
+              Join AWS Cloud Club
+            </button>
+            <p class="text-xs text-slate-500">You'll be added to our AWS Cloud Club mailing list and Discord server.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- AWS Learning Resources -->
+  <section class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold text-center">AWS Learning Resources</h2>
+      <div class="mt-8 grid md:grid-cols-4 gap-4">
+        <a href="https://aws.amazon.com/education/awseducate/" target="_blank" class="bg-white rounded-xl p-4 shadow-soft text-center hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 bg-aws-orange rounded-lg flex items-center justify-center mx-auto mb-3">
+            <span class="text-white font-bold text-sm">AWS</span>
+          </div>
+          <h3 class="font-semibold">AWS Educate</h3>
+          <p class="text-sm text-slate-600 mt-1">Free cloud learning</p>
+        </a>
+        <a href="https://skillbuilder.aws/" target="_blank" class="bg-white rounded-xl p-4 shadow-soft text-center hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 bg-aws-dark rounded-lg flex items-center justify-center mx-auto mb-3">
+            <span class="text-white font-bold text-sm">SB</span>
+          </div>
+          <h3 class="font-semibold">Skill Builder</h3>
+          <p class="text-sm text-slate-600 mt-1">Training &amp; badges</p>
+        </a>
+        <a href="https://aws.amazon.com/certification/" target="_blank" class="bg-white rounded-xl p-4 shadow-soft text-center hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+            <span class="text-white font-bold text-sm">CERT</span>
+          </div>
+          <h3 class="font-semibold">Certification</h3>
+          <p class="text-sm text-slate-600 mt-1">Exam guide &amp; prep</p>
+        </a>
+        <a href="https://aws.amazon.com/getting-started/" target="_blank" class="bg-white rounded-xl p-4 shadow-soft text-center hover:shadow-md transition-shadow">
+          <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
+            <span class="text-white font-bold text-sm">GSG</span>
+          </div>
+          <h3 class="font-semibold">Getting Started</h3>
+          <p class="text-sm text-slate-600 mt-1">Tutorials &amp; labs</p>
+        </a>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-4 items-center">
+      <p class="text-sm text-slate-600">© <span id="year"></span> NIBM Computing Society. All rights reserved.</p>
+      <div class="flex md:justify-end gap-4 text-sm items-center">
+        <a href="chapters.html" class="text-brand-700 hover:underline">← Back to Chapters</a>
+        <span>Follow:</span>
+        <a href="#" aria-label="Facebook" class="p-2 rounded-md border border-slate-200 hover:border-brand-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.48h-1.27c-1.25 0-1.64.77-1.64 1.56v1.87h2.79l-.45 2.91h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93Z"/></svg>
+        </a>
+        <a href="#" aria-label="Instagram" class="p-2 rounded-md border border-slate-200 hover:border-brand-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.25-3a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.25 6.5Z"/></svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="p-2 rounded-md border border-slate-200 hover:border-brand-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M20.45 20.45h-3.55v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.15 1.46-2.15 2.97v5.7H9.33V9h3.4v1.56h.05c.47-.9 1.63-1.86 3.35-1.86 3.59 0 4.26 2.36 4.26 5.43v6.32ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.56 20.45h3.56V9H3.56v11.45Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+  <script>
+    // Toggle mobile menu
+    const btn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (btn && mobileMenu) {
+      btn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    }
+    // Set current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

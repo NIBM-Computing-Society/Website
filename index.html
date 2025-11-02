@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NIBM Computing Society</title>
+  <meta name="description" content="Official website of the NIBM Computing Society – events, projects, workshops, and membership." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Tailwind via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Extend Tailwind with the society brand palette and other custom tokens
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            brand: {
+              50: '#E6F1FA',
+              100: '#D7E9F8',
+              200: '#BBDCF4',
+              300: '#90C4EC',
+              400: '#5EA3DF',
+              500: '#2B7FCF',
+              600: '#2173C4', // primary blue
+              700: '#1B63A9',
+              800: '#154D84',
+              900: '#0F3963'
+            }
+          },
+          boxShadow: { soft: '0 10px 30px rgba(0,0,0,0.08)' }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+  </style>
+  <!-- Site icons -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<body class="bg-white text-slate-800">
+  <!-- Top informational bar -->
+  
+
+  <!-- Primary header and navigation -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html#home" class="flex items-center gap-3">
+          <img src="nibm-computing-society-logo.png" alt="NIBM Computing Society" class="h-10 w-auto" loading="eager" decoding="async" />
+          <span class="font-extrabold text-lg tracking-tight">NIBM Computing Society</span>
+        </a>
+        <!-- Desktop navigation -->
+        <nav class="hidden md:flex items-center gap-6 font-medium">
+          <a href="index.html#about" class="hover:text-brand-700">About</a>
+          <a href="index.html#events" class="hover:text-brand-700">Events</a>
+          <a href="index.html#projects" class="hover:text-brand-700">Projects</a>
+          <a href="index.html#team" class="hover:text-brand-700">Team</a>
+          <!-- Organization dropdown -->
+          <div class="relative group">
+            <button class="hover:text-brand-700 inline-flex items-center gap-1">Organization
+              <svg class="h-4 w-4 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 10.939l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0l-4.24-4.24a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+            </button>
+            <div class="absolute left-0 top-full mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-soft hidden group-hover:block z-50">
+              <a href="advisor-board.html" class="block px-4 py-2 hover:bg-brand-50">Advisory Board</a>
+              <a href="mentor-board.html" class="block px-4 py-2 hover:bg-brand-50">Mentor Board</a>
+              <a href="executive-committee.html" class="block px-4 py-2 hover:bg-brand-50">Executive Committee</a>
+              <a href="operational-units.html" class="block px-4 py-2 hover:bg-brand-50">Operational Units</a>
+              <a href="chapters.html" class="block px-4 py-2 hover:bg-brand-50">Chapters</a>
+            </div>
+          </div>
+          <a href="index.html#contact" class="hover:text-brand-700">Contact</a>
+          <a href="index.html#join" class="px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700 shadow-soft">Join</a>
+        </nav>
+        <!-- Mobile menu button -->
+        <button id="menuBtn" class="md:hidden p-2 rounded-lg border border-slate-300" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5" />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200">
+      <div class="px-4 py-3 grid gap-2 bg-white">
+        <a href="index.html#about" class="py-2">About</a>
+        <a href="index.html#events" class="py-2">Events</a>
+        <a href="index.html#projects" class="py-2">Projects</a>
+        <a href="index.html#team" class="py-2">Team</a>
+        <!-- Organization links for mobile -->
+        <a href="advisor-board.html" class="py-2">Advisory Board</a>
+        <a href="mentor-board.html" class="py-2">Mentor Board</a>
+        <a href="executive-committee.html" class="py-2">Executive Committee</a>
+        <a href="operational-units.html" class="py-2">Operational Units</a>
+        <a href="chapters.html" class="py-2">Chapters</a>
+        <a href="index.html#contact" class="py-2">Contact</a>
+        <a href="index.html#join" class="py-2 rounded-lg bg-brand-600 text-white text-center">Join</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero section -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-white pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 py-20 md:py-28 relative">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight tracking-tight">
+            Build. Learn. Lead. <span class="text-brand-700">Together</span>.
+          </h1>
+          <p class="mt-5 text-lg text-slate-600 max-w-prose">
+            The NIBM Computing Society (NIBM‑CS) is a student‑led community driving tech culture at NIBM: hackathons, workshops, speaker sessions, open‑source projects, and industry collaborations.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="#join" class="px-6 py-3 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-700 shadow-soft">Become a Member</a>
+            <a href="#events" class="px-6 py-3 rounded-xl border border-slate-300 font-semibold hover:border-brand-600 hover:text-brand-700">Upcoming Events</a>
+          </div>
+        </div>
+        <!-- Announcement panel with rolling messages and KPIs -->
+        <div class="relative">
+          <div class="rounded-2xl shadow-soft bg-white p-5">
+            <div class="rounded-xl bg-brand-50 p-5">
+              <p id="ticker" class="text-sm font-medium text-brand-900"></p>
+            </div>
+            <div class="mt-4 grid grid-cols-3 gap-3 text-center">
+              <div class="p-3 rounded-lg bg-brand-50">
+                <p class="text-2xl font-extrabold">1K+</p>
+                <p class="text-sm text-slate-600">Participants</p>
+              </div>
+              <div class="p-3 rounded-lg bg-brand-50">
+                <p class="text-2xl font-extrabold">30+</p>
+                <p class="text-sm text-slate-600">Workshops</p>
+              </div>
+              <div class="p-3 rounded-lg bg-brand-50">
+                <p class="text-2xl font-extrabold">12</p>
+                <p class="text-sm text-slate-600">Projects</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About section -->
+  <section id="about" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold">About the Society</h2>
+          <p class="mt-4 text-slate-700 leading-relaxed">
+            We promote hands‑on learning and collaboration across Cybersecurity, Cloud, Data, AI/ML, and Software Engineering. Members get access to training, mentorship, competitions, and industry networks.
+          </p>
+          <ul class="mt-6 space-y-3 text-slate-700">
+            <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 bg-brand-600 rounded-full"></span> Weekly tech talks and labs</li>
+            <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 bg-brand-600 rounded-full"></span> Project squads &amp; open‑source contributions</li>
+            <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 bg-brand-600 rounded-full"></span> Career sessions with industry partners</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold text-lg">Mission</h3>
+          <p class="mt-2 text-slate-700">Enable students to explore, build, and showcase tech skills that create real impact for Sri Lanka and beyond.</p>
+          <h3 class="mt-6 font-bold text-lg">Values</h3>
+          <ul class="mt-2 grid grid-cols-2 gap-3 text-slate-700">
+            <li class="p-3 bg-slate-50 rounded-lg">Collaboration</li>
+            <li class="p-3 bg-slate-50 rounded-lg">Integrity</li>
+            <li class="p-3 bg-slate-50 rounded-lg">Innovation</li>
+            <li class="p-3 bg-slate-50 rounded-lg">Inclusivity</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events section -->
+  <section id="events" class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-2xl md:text-3xl font-extrabold">Upcoming Events</h2>
+        <a href="#contact" class="text-brand-700 hover:underline">Partner with us →</a>
+      </div>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <!-- Internship Insights -->
+        <article class="bg-white rounded-2xl shadow-soft overflow-hidden flex flex-col">
+          <div class="h-40 overflow-hidden">
+            <img src="internship-insights.jpg" alt="Internship Insights session poster" class="w-full h-full object-cover" />
+          </div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-sm font-semibold text-brand-600">Tue, 15 Oct · 4:30 PM onwards · At NIBM</p>
+            <h3 class="mt-1 font-bold text-lg">Internship Insights</h3>
+            <p class="mt-2 text-slate-700 flex-1">Featuring NIBM students with internship experience. Tips on landing roles, interviews, and building portfolios.</p>
+            <a href="#" class="mt-4 inline-block px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700">Register</a>
+          </div>
+        </article>
+        <!-- IEEE Day -->
+        <article class="bg-white rounded-2xl shadow-soft overflow-hidden flex flex-col">
+          <div class="h-40 bg-gradient-to-br from-brand-200 to-brand-500/30"></div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-sm font-semibold text-brand-600">Mon, 13 Oct · 3:30–6:30 PM</p>
+            <h3 class="mt-1 font-bold text-lg">IEEE Day @ NIBM</h3>
+            <p class="mt-2 text-slate-700 flex-1">Talks, demos, and networking. Open to all students. Refreshments provided.</p>
+            <a href="#join" class="mt-4 inline-block px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700">Register</a>
+          </div>
+        </article>
+        <!-- Secure Coding Workshop -->
+        <article class="bg-white rounded-2xl shadow-soft overflow-hidden flex flex-col">
+          <div class="h-40 bg-gradient-to-br from-brand-200 to-brand-500/30"></div>
+          <div class="p-5 flex-1 flex flex-col">
+            <p class="text-sm font-semibold text-brand-600">Wed, 5 Nov · 1:30 PM</p>
+            <h3 class="mt-1 font-bold text-lg">Secure Coding Workshop</h3>
+            <p class="mt-2 text-slate-700 flex-1">XSS, SQLi, and secure patterns for web apps. Bring your laptop.</p>
+            <a href="#join" class="mt-4 inline-block px-4 py-2 rounded-lg bg-brand-600 text-white hover:bg-brand-700">Register</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects section -->
+  <section id="projects" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Showcase Projects</h2>
+      <div class="mt-8 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold">NiNaWAF</h3>
+          <p class="mt-2 text-slate-700">ML‑powered WAF plugin for WordPress detecting SQLi/XSS patterns.</p>
+          <a href="#" class="mt-3 inline-flex items-center gap-2 text-brand-700 hover:underline">View repo →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold">PII‑Sentinel</h3>
+          <p class="mt-2 text-slate-700">Automated scanning for PII exposure across .LK domains.</p>
+          <a href="#" class="mt-3 inline-flex items-center gap-2 text-brand-700 hover:underline">View repo →</a>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold">Smart Parking Bay (IoT)</h3>
+          <p class="mt-2 text-slate-700">Arduino sensors + web dashboard for real‑time slot visibility.</p>
+          <a href="#" class="mt-3 inline-flex items-center gap-2 text-brand-700 hover:underline">View repo →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team section -->
+  <section id="team" class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Executive Committee 2025</h2>
+      <div class="mt-8 grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-soft text-center">
+          <div class="mx-auto h-20 w-20 rounded-full bg-brand-200"></div>
+          <h3 class="mt-3 font-bold">President</h3>
+          <p class="text-slate-700">Name Surname</p>
+          <a href="mailto:president@nibm.lk" class="text-brand-700 text-sm hover:underline">president@nibm.lk</a>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft text-center">
+          <div class="mx-auto h-20 w-20 rounded-full bg-brand-200"></div>
+          <h3 class="mt-3 font-bold">Vice President</h3>
+          <p class="text-slate-700">Name Surname</p>
+          <a href="mailto:vp@nibm.lk" class="text-brand-700 text-sm hover:underline">vp@nibm.lk</a>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft text-center">
+          <div class="mx-auto h-20 w-20 rounded-full bg-brand-200"></div>
+          <h3 class="mt-3 font-bold">Secretary</h3>
+          <p class="text-slate-700">Name Surname</p>
+          <a href="mailto:secretary@nibm.lk" class="text-brand-700 text-sm hover:underline">secretary@nibm.lk</a>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft text-center">
+          <div class="mx-auto h-20 w-20 rounded-full bg-brand-200"></div>
+          <h3 class="mt-3 font-bold">Treasurer</h3>
+          <p class="text-slate-700">Name Surname</p>
+          <a href="mailto:treasurer@nibm.lk" class="text-brand-700 text-sm hover:underline">treasurer@nibm.lk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Join section -->
+  <section id="join" class="py-16">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-extrabold">Join the Computing Society</h2>
+          <p class="mt-4 text-slate-700">Membership is open to all NIBM students. Get updates on events, workshops, and opportunities.</p>
+          <ul class="mt-4 list-disc list-inside text-slate-700">
+            <li>Priority access to limited‑seat workshops</li>
+            <li>Project mentorship &amp; leadership roles</li>
+            <li>Certificates for active contributors</li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <form action="#" method="post" class="grid gap-4">
+            <div>
+              <label class="block text-sm font-medium">Full Name</label>
+              <input type="text" required class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-600 focus:ring-brand-600" placeholder="Your name" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">NIBM Email</label>
+              <input type="email" required class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-600 focus:ring-brand-600" placeholder="you@students.nibm.lk" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium">Interest Areas</label>
+              <select class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-600 focus:ring-brand-600">
+                <option>Cybersecurity</option>
+                <option>Cloud &amp; DevOps</option>
+                <option>AI/ML &amp; Data</option>
+                <option>Web/Mobile Development</option>
+                <option>IoT &amp; Embedded</option>
+              </select>
+            </div>
+            <button type="submit" class="mt-2 px-5 py-3 rounded-xl bg-brand-600 text-white font-semibold hover:bg-brand-500">Request Membership</button>
+            <p class="text-xs text-slate-500">By submitting, you agree to our Code of Conduct.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact section -->
+  <section id="contact" class="py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-2xl md:text-3xl font-extrabold">Contact</h2>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold">General</h3>
+          <p class="mt-2 text-slate-700">NIBM Computing Society, Colombo 07</p>
+          <a href="mailto:computingsociety@nibm.lk" class="text-brand-700 hover:underline">computingsociety@nibm.lk</a>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold">Social</h3>
+          <ul class="mt-4 grid grid-cols-3 gap-3">
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 p-3 rounded-lg border border-slate-200 hover:border-brand-600" aria-label="Facebook">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-brand-600"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.48h-1.27c-1.25 0-1.64.77-1.64 1.56v1.87h2.79l-.45 2.91h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 p-3 rounded-lg border border-slate-200 hover:border-brand-600" aria-label="Instagram">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-brand-600"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.25-3a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.25 6.5Z"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 p-3 rounded-lg border border-slate-200 hover:border-brand-600" aria-label="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-brand-600"><path d="M20.45 20.45h-3.55v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.15 1.46-2.15 2.97v5.7H9.33V9h3.4v1.56h.05c.47-.9 1.63-1.86 3.35-1.86 3.59 0 4.26 2.36 4.26 5.43v6.32ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.56 20.45h3.56V9H3.56v11.45Z"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-6 shadow-soft">
+          <h3 class="font-bold">Press &amp; Partnerships</h3>
+          <p class="mt-2 text-slate-700">For collaborations, workshops, and sponsorships.</p>
+          <a href="mailto:partnerships@nibm.lk" class="text-brand-700 hover:underline">partnerships@nibm.lk</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site footer -->
+  <footer class="border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-2 gap-4 items-center">
+      <p class="text-sm text-slate-600">© <span id="year"></span> NIBM Computing Society. All rights reserved.</p>
+      <div class="flex md:justify-end gap-4 text-sm items-center">
+        <span>Follow:</span>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="p-2 rounded-md border border-slate-200 hover:border-brand-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5 3.66 9.14 8.44 9.93v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.78-3.89 1.1 0 2.25.2 2.25.2v2.48h-1.27c-1.25 0-1.64.77-1.64 1.56v1.87h2.79l-.45 2.91h-2.34V22c4.78-.79 8.44-4.93 8.44-9.93Z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="p-2 rounded-md border border-slate-200 hover:border-brand-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A5.5 5.5 0 1 1 6.5 13 5.5 5.5 0 0 1 12 7.5Zm0 2A3.5 3.5 0 1 0 15.5 13 3.5 3.5 0 0 0 12 9.5Zm5.25-3a1.25 1.25 0 1 1-1.25 1.25A1.25 1.25 0 0 1 17.25 6.5Z"/></svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="p-2 rounded-md border border-slate-200 hover:border-brand-600">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-4 w-4"><path d="M20.45 20.45h-3.55v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.15 1.46-2.15 2.97v5.7H9.33V9h3.4v1.56h.05c.47-.9 1.63-1.86 3.35-1.86 3.59 0 4.26 2.36 4.26 5.43v6.32ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM3.56 20.45h3.56V9H3.56v11.45Z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts for dynamic behavior -->
+  <script>
+    // Mobile menu toggle
+    const btn = document.getElementById('menuBtn');
+    const menu = document.getElementById('mobileMenu');
+    if (btn && menu) {
+      btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+    }
+    // Set the current year in the footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+    // Rolling announcements for hero panel
+    const messages = [
+      '🎓 Internship Insights — Oct 15, 4:30 PM @ NIBM. Don’t miss it!',
+      '🛠️ Call for Volunteers — Events & Tech Squads.',
+      '🔐 Secure Coding Workshop — Nov 5, 1:30 PM.'
+    ];
+    let tIndex = 0;
+    const tickerEl = document.getElementById('ticker');
+    function updateTicker(){
+      if (!tickerEl) return;
+      tickerEl.textContent = messages[tIndex % messages.length];
+      tIndex++;
+    }
+    updateTicker();
+    setInterval(updateTicker, 4000);
+  </script>
+</body>
+</html>
