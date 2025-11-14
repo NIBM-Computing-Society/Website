@@ -80,7 +80,6 @@
               const menu = document.getElementById('orgDropdownMenu');
               const container = document.getElementById('orgDropdownContainer');
               let isMenuOpen = false;
-              let mouseInside = false, focusInside = false;
               let hideTimeout = null;
 
               // Show dropdown
@@ -93,51 +92,76 @@
                 btn.setAttribute('aria-expanded', 'true');
                 isMenuOpen = true;
               }
+              
               // Hide dropdown
               function hideMenu() {
                 if (hideTimeout) {
                   clearTimeout(hideTimeout);
                 }
                 hideTimeout = setTimeout(() => {
-                  if (!mouseInside && !focusInside) {
-                    menu.classList.add('hidden');
-                    btn.setAttribute('aria-expanded', 'false');
-                    isMenuOpen = false;
-                  }
+                  menu.classList.add('hidden');
+                  btn.setAttribute('aria-expanded', 'false');
+                  isMenuOpen = false;
                   hideTimeout = null;
-                }, 100);
+                }, 150);
               }
 
-              // Mouse events for container (hover support)
+              // Mouse enter on container - show menu
               container.addEventListener('mouseenter', function() {
-                mouseInside = true;
                 showMenu();
               });
-              container.addEventListener('mouseleave', function() {
-                mouseInside = false;
+
+              // Mouse leave on container - check if moving to menu
+              container.addEventListener('mouseleave', function(e) {
+                const relatedTarget = e.relatedTarget;
+                if (relatedTarget && (container.contains(relatedTarget) || menu.contains(relatedTarget))) {
+                  return; // Moving to child element, keep menu open
+                }
                 hideMenu();
               });
 
-              // Also handle mouse events on the menu itself
+              // Mouse enter on menu - ensure menu stays open
               menu.addEventListener('mouseenter', function() {
-                mouseInside = true;
                 showMenu();
               });
-              menu.addEventListener('mouseleave', function() {
-                mouseInside = false;
+
+              // Mouse leave on menu - hide menu
+              menu.addEventListener('mouseleave', function(e) {
+                const relatedTarget = e.relatedTarget;
+                if (relatedTarget && (container.contains(relatedTarget) || relatedTarget === btn)) {
+                  return; // Moving back to container/button, keep menu open
+                }
                 hideMenu();
+              });
+
+              // Track mouse movement to handle gap between button and menu
+              document.addEventListener('mousemove', function(e) {
+                if (!isMenuOpen) return;
+                
+                const containerRect = container.getBoundingClientRect();
+                const menuRect = menu.getBoundingClientRect();
+                const mouseX = e.clientX;
+                const mouseY = e.clientY;
+                
+                const overContainer = mouseX >= containerRect.left && mouseX <= containerRect.right &&
+                                     mouseY >= containerRect.top && mouseY <= containerRect.bottom;
+                const overMenu = mouseX >= menuRect.left && mouseX <= menuRect.right &&
+                                mouseY >= menuRect.top && mouseY <= menuRect.bottom;
+                
+                if (!overContainer && !overMenu) {
+                  hideMenu();
+                } else if (!menu.classList.contains('hidden')) {
+                  showMenu(); // Keep it open
+                }
               });
 
               // Focus events for accessibility/tab/keyboard navigation
               container.addEventListener('focusin', function() {
-                focusInside = true;
                 showMenu();
               });
               container.addEventListener('focusout', function(e) {
-                // Check if focus is moving to an element inside the container
                 const relatedTarget = e.relatedTarget;
                 if (!container.contains(relatedTarget)) {
-                  focusInside = false;
                   hideMenu();
                 }
               });
@@ -149,7 +173,6 @@
                   hideMenu();
                 } else {
                   showMenu();
-                  // Focus first link for keyboard nav
                   const firstLink = menu.querySelector('a');
                   if (firstLink) { firstLink.focus(); }
                 }
